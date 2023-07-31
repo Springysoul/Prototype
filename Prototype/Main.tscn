@@ -63,8 +63,9 @@ script = ExtResource("1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.99598, 16.14)
 
 [node name="Camera3D" type="Camera3D" parent="World/Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152793, -3.61146, 0.0447826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305681, -3.4869, 0.0447826)
 current = true
+fov = 65.0
 near = 0.01
 far = 8192.0
 
@@ -85,4 +86,13 @@ environment = SubResource("Environment_nqge6")
 position = Vector2(41, 323.5)
 shape = SubResource("RectangleShape2D_c2lke")
 
+[node name="Right" type="Node2D" parent="Overlay"]
+
+[node name="DetectRight" type="Area2D" parent="Overlay/Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overlay/Right/DetectRight"]
+position = Vector2(1115, 323.5)
+shape = SubResource("RectangleShape2D_c2lke")
+
 [connection signal="mouse_entered" from="Overlay/Left/DetectLeft" to="World/Player" method="_on_detect_left_mouse_entered"]
+[connection signal="mouse_entered" from="Overlay/Right/DetectRight" to="World/Player" method="_on_detect_right_mouse_entered"]
