@@ -8,5 +8,6 @@ var degrees = 0
 
 func _on_detect_left_mouse_entered() -> void:
 	while degrees < 80:
-		head.rotate_y(1)
-		degrees += 1
+		head.rotate_y(0.1)
+		degrees += 5
+		await get_tree().create_timer(0.01).timeout
