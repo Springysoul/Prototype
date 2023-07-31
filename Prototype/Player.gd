@@ -6,11 +6,7 @@ var degrees = 0
 @onready var camera = $Head/Camera3D
 
 
-#head.rotate_y(-event.relative.x * SENSITIVITY)
-
-
 func _on_detect_left_mouse_entered() -> void:
-	while degrees > -90:
-		head.rotate_y(-1)
-		degrees -= 1
-		await(get_tree().create_timer(0.01),"timeout")
+	while degrees < 80:
+		head.rotate_y(1)
+		degrees += 1
